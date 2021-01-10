@@ -4,6 +4,7 @@ Rails.application.routes.draw do
   get 'users/new'
   get 'users/create'
   get 'tasks/index'
+  get 'users/login_form'
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
 
   post 'login', to:'users#login'
