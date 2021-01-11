@@ -1,5 +1,7 @@
 class TasksController < ApplicationController
   def index
+    @tasks = Task.where(user_id: session[:id])
+    # @tasks =  Task.find_by(user_id: session[:id])
   end
 
   def new

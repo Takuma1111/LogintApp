@@ -2,4 +2,13 @@
 <p>Find me in app/views/tasks/index.html.erb</p>
 <h1><%= session[:id] %></h1>
 
+<% @tasks.each do |task| %>
+    <tr>
+      <td>こんにちは<%= task.user_id %>さん</td>
+      <td><%= task.taskname %></td>
+      <td><%= task.body %></td>
+    </tr>
+    <br>
+<% end %>
+<br>
 <%= link_to 'タスク登録',tasks_new_path %>
