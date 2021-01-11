@@ -1,0 +1,21 @@
+<h1>Create to Your Task</h1>
+  <p>Please fill in this form to create an account.</p
+
+  <h1><%= session[:id] %></h1>
+  <%= form_with url: tasks_create_path, local: true do |form| %>
+    <%= form.label :taskname %>
+    <li>
+      <%= form.text_field :taskname %>
+    </li>
+    <%= form.label :body %>
+    <li>
+      <%= form.text_field :body %>
+    </li>
+
+    <li>
+      <%= form.text_field :user_id ,value: session[:id]%>
+    </li>
+    <% session[:user_id] = session[:id]  %>
+
+    <%= form.submit "Create my account", class: "btn btn-primary" %>
+  <% end %>

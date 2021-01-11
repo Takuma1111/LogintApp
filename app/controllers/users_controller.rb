@@ -18,14 +18,13 @@ class UsersController < ApplicationController
   end
 
   def login
-      puts '///////////////////'
-      puts params[:email]
-      puts params[:password]
 
       @user = User.find_by(email: params[:email])
       if @user && @user.authenticate(params[:password])
         session[:user_id] = @user.id
         flash[:notice] = "Logged in"
+        @@ids = @user.id
+        session[:id] = @user.id
         redirect_to tasks_index_path
       else
         @error_message = "Your email or username is incorrect."
